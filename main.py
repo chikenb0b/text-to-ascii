@@ -1,13 +1,18 @@
+# stuff to import
 from PIL import Image
 import numpy as np
 
-asciibright = (["@", "&", "#", "*", "+", "=", "-", ":", "<"])
-# Open the image and convert it to grayscale
-img = Image.open('Meatball.JPG').convert('L') # to change it put a image in the same folder as this and change the name to your file I have tried with .jpg and .png with no trouble
+# Sets paramiters of the final ascii art
+imageselection = input("What Image Would You Like to Use (Note: it theimage has to be in the same directory. And have the exact name (case sensitive)): ")
+target_width = input("Wow Wide Would You Like Your Image to be: ")
+target_width = int(target_width)
+target_height = input("How Long Would You Like Your Image to be (Note: it should be a dividend number of the width of you image I like halfing the width): ")
+target_height = int(target_height)
 
-# Set the target width and height
-target_width = 150
-target_height = 75
+asciibright = (["@", "&", "#", "*", "+", "=", "-", ":", "<"])
+
+# Open the image and convert it to grayscale
+img = Image.open(imageselection).convert('L') # to change it put a image in the same folder as this and change the name to your file I have tried with .jpg and .png with no trouble
 
 # Resize the image, specifying the target width and height
 greyscaleimg = img.resize((target_width, target_height))
